@@ -3,11 +3,13 @@
     <h1>{{title}}</h1>
 		<p @click="register">register</p>
 		<p @click="login">login</p>
+		<p @click="addFriend">addFriend</p>
+		<p @click="getFriendsList">getFriendsList</p>
   </div>
 </template>
 
 <script>
-import { register, login } from '@/api/api'
+import { register, login, addFriend, getFriendsList } from '@/api/api'
 export default {
   data() {
     return {
@@ -31,6 +33,25 @@ export default {
 				password: 'a123456'
 			}).then((res) => {
 				sessionStorage.setItem('token', res.token)
+				console.log(res)
+			}).catch((err) => {
+				console.log(err)
+			})
+		},
+		addFriend() {
+			addFriend({
+				user_id: 10,
+				from_user: 11
+			}).then((res) => {
+				console.log(res)
+			}).catch((err) => {
+				console.log(err)
+			})
+		},
+		getFriendsList() {
+			getFriendsList({
+				user_id: 10
+			}).then((res) => {
 				console.log(res)
 			}).catch((err) => {
 				console.log(err)

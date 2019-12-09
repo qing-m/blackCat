@@ -8,7 +8,12 @@ const router = new VueRouter({
   mode: 'hash',
   base: process.env.BASE_URL,
   routes: [
-    ...constRouter
+    ...constRouter,
+    {
+      path: '/api',
+      name: 'api',
+      component: () => import('@/views/apiTest/apiTest')
+    }
   ]
 })
 

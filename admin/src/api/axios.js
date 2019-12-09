@@ -1,13 +1,12 @@
 import axios from 'axios'
 import qs from 'qs'
-import { getCustInfo } from 'common/js/utils'
 const prefixUrl = process.env.VUE_APP_HOSTURL
 // 实例化axios
 const instance = axios.create()
 
 instance.interceptors.request.use(config => {
   config.method === 'post' ? qs.stringify({ ...Object.assign({}, config.data) }) : config.params = { ...Object.assign({}, config.params) }
-  const token = getCustInfo.token
+  const token = sessionStorage.getItem('token')
   if (token) {
     config.headers['token'] = token
   }

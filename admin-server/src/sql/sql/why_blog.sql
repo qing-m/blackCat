@@ -286,30 +286,17 @@ CREATE TABLE `why_submenus` (
 DROP TABLE IF EXISTS `why_users`;
 CREATE TABLE `why_users` (
   `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `user_ip` varchar(20) NOT NULL,
-  `user_name` varchar(20) NOT NULL,
   `user_password` varchar(15) NOT NULL,
-  `user_email` varchar(30) NOT NULL,
-  `user_profile_photo` varchar(255) NOT NULL,
-  `user_level` varchar(20) NOT NULL,
-  `user_rights` varchar(20) NOT NULL,
-  `user_registration_time` datetime NOT NULL,
-  `user_birthday` date DEFAULT NULL,
-  `user_age` tinyint(4) DEFAULT NULL,
   `user_telephone_number` int(11) NOT NULL,
-  `user_nickname` varchar(20) NOT NULL,
   PRIMARY KEY (`user_id`),
-  KEY `user_name` (`user_name`),
-  KEY `user_nickname` (`user_nickname`),
-  KEY `user_email` (`user_email`),
   KEY `user_telephone_number` (`user_telephone_number`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of why_users
 -- ----------------------------
-INSERT INTO `why_users` VALUES ('1', '1111', '张甲', 'zhangjia', '22@22.com', '图片', '1', '1', '2018-06-18 11:30:43', '2018-06-13', '20', '156666633', '张嘎');
-INSERT INTO `why_users` VALUES ('2', '222', '张一', 'zhangyi', 'yi@qq.com', '图片2', '1', '1', '2018-06-18 11:31:33', '2018-06-18', '21', '1533625255', '张一一');
+INSERT INTO `why_users` VALUES ('1', 'zhangjia', '156666633');
+INSERT INTO `why_users` VALUES ('2', 'zhangyi', '1533625255');
 
 -- ----------------------------
 -- Table structure for why_user_friends

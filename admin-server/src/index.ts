@@ -2,6 +2,7 @@ import * as cors from 'koa-cors';
 import * as bodyParser from 'koa-bodyparser';
 import router from './routers';
 import config from './config/config.dev';
+import './sql/query'
 
 import { Server } from './server'
 

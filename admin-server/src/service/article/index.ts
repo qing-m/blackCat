@@ -1,6 +1,7 @@
 import { query } from '../../sql/query'
 
-export class UserService {
+export class ArticleService {
+	name = 1
 	static findDataTel (tel: string) {
 		const _sql = 'SELECT * FROM why_users WHERE user_telephone_number=?'
 		return query(_sql, tel)

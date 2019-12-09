@@ -17,7 +17,7 @@ export default {
 	methods: {
 		register() {
 			register({
-				tel: '156666633',
+				tel: '80922158',
 				password: 'a123456'
 			}).then((res) => {
 				console.log(res)
@@ -27,9 +27,10 @@ export default {
 		},
 		login() {
 			login({
-				tel: '156666633',
+				tel: '809221582',
 				password: 'a123456'
 			}).then((res) => {
+				sessionStorage.setItem('token', res.token)
 				console.log(res)
 			}).catch((err) => {
 				console.log(err)

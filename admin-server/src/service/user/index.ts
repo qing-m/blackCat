@@ -1,4 +1,4 @@
-class UserService {
+export class UserService {
 	static findDataName (name: string) {
 		return true
 	}
@@ -8,5 +8,3 @@ class UserService {
 		return true
   };
 }
-
-export default UserService

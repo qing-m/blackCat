@@ -1,4 +1,4 @@
-import UserService from '../../service/user'
+import { UserService } from '../../service/index'
 
 class User {
 	static async register (ctx: any) {

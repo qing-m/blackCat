@@ -17,6 +17,13 @@ const routes = [
       title: '首页'
     }
   },
+  {
+    path: '/echarts',
+    component: () => import('@/views/echarts/index'),
+    meta: {
+      title: '图表'
+    }
+  },
   ...user
 ]
 

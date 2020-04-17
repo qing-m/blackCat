@@ -23,7 +23,7 @@ const dbName: dbNameType = {
     database: 'why_blog'
 }
 
-const sqlContent:string = fs.readFileSync(path.resolve(__dirname,'..','./sql/why_blog.sql'),'utf-8')
+const sqlContent:string = fs.readFileSync(path.resolve(__dirname,'./sql/why_blog.sql'),'utf-8')
 let pool: any
 
 const init:any = mysql.createConnection(db)
@@ -46,21 +46,20 @@ init.query('CREATE DATABASE why_blog', (err:object)=>{
 })
 init.end()
 
-export default function query(sql:string, values?:string) {
-    return new Promise((reslove:any, reject:any)=>{
-        pool.getConnection((err:any,connection:any)=>{
-            if(err) {
-                reject(err)
-            }else {
-                connection.query(sql,values,(err:any, data:any)=>{
-                    if(err){
-                        reject(err)
-                    } else {
-                        reslove(data)
-                    }
-                    connection.release()
-                })
-            }
-        })
-    })
-}
+export const query = (sql:any, values?:any): Promise<any> => new Promise((resolve, reject) => {
+    pool.getConnection((err:any, connection:any) => {
+      if (err) {
+        console.log('query connec error!', err);
+        // resolve(err);
+      } else {
+        connection.query(sql, values, (err:any, rows:any) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(rows);
+          }
+          connection.release();
+        });
+      }
+    });
+  });

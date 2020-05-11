@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <navBar />
+    <L2Dweidegt />
     <div class="nav-placeholder-box" />
     <router-view />
   </div>

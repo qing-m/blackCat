@@ -11,5 +11,6 @@ export default {
 </script>
 
 <style lang="stylus">
-
+.title
+  font-size 2.4rem
 </style>

@@ -11,6 +11,7 @@ router.beforeEach((to, from, next) => {
   if (hasToken) {
     if (to.path === '/admin/login') {
       next({ path: '/' })
+      Nprogress.done()
     } else {
       next()
     }
@@ -19,7 +20,7 @@ router.beforeEach((to, from, next) => {
     if (whitePageList.indexOf(to.path) !== -1) {
       next()
     } else {
-      next(`/admin/login`)
+      next(`/admin/login?redirect=${to.path}`)
       Nprogress.done()
     }
   }

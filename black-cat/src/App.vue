@@ -3,14 +3,17 @@
     <navBar />
     <div class="nav-placeholder-box" />
     <router-view />
+    <tabeBar />
   </div>
 </template>
 
 <script>
 import navBar from 'components/navBar/navBar.vue'
+import tabeBar from 'components/tabeBar/tabeBar.vue'
 export default {
   components: {
-    navBar: navBar
+    navBar: navBar,
+    tabeBar: tabeBar
   }
 }
 </script>

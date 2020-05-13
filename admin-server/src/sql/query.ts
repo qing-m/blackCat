@@ -47,19 +47,19 @@ init.query('CREATE DATABASE why_blog', (err:object)=>{
 init.end()
 
 export const query = (sql:any, values?:any): Promise<any> => new Promise((resolve, reject) => {
-    pool.getConnection((err:any, connection:any) => {
-      if (err) {
-        console.log('query connec error!', err);
-        // resolve(err);
-      } else {
-        connection.query(sql, values, (err:any, rows:any) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(rows);
-          }
-          connection.release();
-        });
-      }
-    });
+  pool.getConnection((err:any, connection:any) => {
+    if (err) {
+      console.log('query connec error!', err);
+      // resolve(err);
+    } else {
+      connection.query(sql, values, (err:any, rows:any) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(rows);
+        }
+        connection.release();
+      });
+    }
   });
+});

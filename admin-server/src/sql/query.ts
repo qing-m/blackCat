@@ -31,18 +31,18 @@ const init:any = mysql.createConnection(db)
 //连接数据库
 init.connect()
 init.query('CREATE DATABASE why_blog', (err:object)=>{
-    Object.assign(db,dbName)
-    pool = mysql.createPool(db)
-    if(err){
-        console.log('why_blog database created already')
-    } else {
-        console.log('create why_blog database')
-        query(sqlContent).then( (res:any) =>{
-            console.log('import sql is success')
-        }).catch( (err:any) =>{
-            console.log('import sql is error')
-        })
-    }
+  Object.assign(db,dbName)
+  pool = mysql.createPool(db)
+  if(err){
+    console.log('why_blog database created already')
+  } else {
+    console.log('create why_blog database')
+    query(sqlContent).then( (res:any) =>{
+        console.log('import sql is success')
+    }).catch( (err:any) =>{
+        console.log('import sql is error')
+    })
+  }
 })
 init.end()
 
